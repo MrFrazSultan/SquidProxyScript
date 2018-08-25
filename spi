@@ -149,6 +149,8 @@ ubt ()	{
 	read -e -p "Your desired username: " usrn
 	# Creating user with username from $usrn and asking user to set a password
 	htpasswd -c /etc/squid3/passwd $usrn
+	# Password File (If Ubuntu 16 or 18)
+	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
