@@ -155,16 +155,10 @@ ubt ()	{
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
 	cp /etc/init/squid3.conf /etc/init.d/squid3
-	# Config File (If Ubuntu 16 or 18)
-	cp /etc/squid/squid.conf /etc/init.d/squid
 	# Creating empty blacklist.acl file for further blacklisting entries
 	touch /etc/squid3/blacklist.acl	
-	# Blacklist File (If Ubuntu 16 or 18)
-	touch /etc/squid/blacklist.acl	
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
-	# Restart (If Ubuntu 16 or 18)
-	service squid restart && update-rc.d squid defaults
 	# Running function firew2
 	firew2
 }
